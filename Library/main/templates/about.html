@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Librarian Panel</title>
+<meta charset="UTF-8">
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script>
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+          {
+            pageLanguage: "en",
+            includedLanguages: "pa,ta,te,kn,ml,hi,mr,as,bn,bho,doi,gu,gom,mai,mni-Mtei,lus,or,sa,sd,ur,en",
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false,
+            multilanguagePage: true,
+          },
+          "google_translate_element"
+        );
+      }
+    </script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+</head>
+<div id="google_translate_element"></div>
+<body style="background-image: url('static/images/back.jpg'); background-repeat: no-repeat; background-size: cover; background-attachment: fixed;">
+<header>
+<div class="nav">
+<p>LIBRARIAN PANEL</p>
+<img src="{{ url_for('static', filename='../static/images/logo.png') }}" alt="Logo">
+<p id="user">Librarian</p>
+<a href="/logout" style="text-decoration: none;">
+    <div id="logout" style="text-decoration: underline;">Logout</div>
+</a>
+</div>
+
+<nav>
+<ul>
+<li><a href="/das">Dashboard</a></li>
+<li><a href="/profile">My Profile</a></li>
+<li><a href="/register1">Issue Books</a></li>
+<li><a href="/issued">View Issued Books</a></li>
+<li><a href="/manageuser">Manage Users</a></li>
+<li><a href="/bookmanage">Book Management</a></li>
+<li><a href="/help">Help</a></li>
+<li><a href="/about">About Software</a></li>
+</ul>
+</nav>
+</header>
+<div class="sectionbox">
+<section>
+	<h1>LIBRARIAN PANEL</h1>
+	<h2>By Kypd Digital</h2>
+	<h4>Software Version:1.1.1</h4>
+	<h4>Developed for 8848</h4>
+	<h4>Operating Systems:Windows,Linux</h4>
+	<h4>RAM Required:500mb</h4>
+	<h4>Hard Disk Space:100mb</h4>
+	<h6 id="copyright">All Rights Reserved &copy</h6>
+</section>
+</div>
+  </body>
+  </html>

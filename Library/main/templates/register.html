@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>CRS Register</title>
+	<meta charset="utf-8">
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script>
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+          {
+            pageLanguage: "en",
+            includedLanguages: "pa,ta,te,kn,ml,hi,mr,as,bn,bho,doi,gu,gom,mai,mni-Mtei,lus,or,sa,sd,ur,en",
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false,
+            multilanguagePage: true,
+          },
+          "google_translate_element"
+        );
+      }
+    </script>
+    <style>
+      /* Style for language selector */
+      .goog-te-banner-frame {
+        display: none !important;
+      }
+      .goog-te-menu-value {
+        padding: 0;
+      }
+      .goog-te-menu-value span:first-child {
+        font-size: 14px;
+        font-weight: bold;
+      }
+      .goog-te-menu-value span:last-child {
+        font-size: 12px;
+        font-weight: normal;
+      }
+      .goog-te-menu2 {
+        border: 1px solid #ccc;
+        background-color: #f8f8f8;
+      }
+      .goog-te-menu2-item {
+        padding: 5px 10px;
+        font-size: 14px;
+      }
+      .goog-te-menu2-item:hover {
+        background-color: #e5e5e5;
+      }
+      /* Style for translated text */
+      [data-translate] {
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
+        color: #333;
+        margin-bottom: 10px;
+      }
+    </style>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }} ">
+
+</head>
+<div id="google_translate_element" name="lang"></div>
+<body class="img js-fullheight" style="background-image: url('static/images/back.jpg'); background-repeat: no-repeat; background-size: cover; background-attachment: fixed;">
+
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">Register</h2>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-6 col-lg-4">
+					<div class="login-wrap p-0">
+						<h3 class="mb-4 text-center">Don't have an account?</h3>
+						<form action="/register1" class="signin-form" method="POST">
+							<div class="form-group">
+								<input type="text" name="Name" class="form-control" placeholder="Username" required>
+							</div>
+							<div class="form-group">
+								<input type="email" name="Email" class="form-control" placeholder="Email" required>
+							</div>
+							<div class="form-group">
+								<input id="password-field" name="pass1" type="password" class="form-control" placeholder="Password"
+									required>
+								<span toggle="#password-field"
+									class="fa fa-fw fa-eye field-icon toggle-password"></span>
+							</div>
+							<div class="form-group">
+								<button type="submit" class="form-control btn btn-primary submit px-3">Sign In</button>
+							</div>
+							<div class="form-group d-md-flex">
+								<div class="w-50">
+									<label class="checkbox-wrap checkbox-primary">Remember Me
+										<input type="checkbox" checked>
+										<span class="checkmark"></span>
+									</label>
+								</div>
+								<div class="w-50 text-md-right">
+									<a href="#" style="color: #fff">Forgot Password</a>
+								</div>
+							</div>
+						</form>
+						<p class="w-100 text-center">&mdash; Or Sign In With &mdash;</p>
+						<div class="social d-flex text-center">
+							<a href="#" class="px-2 py-2 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span>
+								Facebook</a>
+							<a href="#" class="px-2 py-2 ml-md-1 rounded"><span class="ion-logo-twitter mr-2"></span>
+								Twitter</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="{{ url_for('static', filename='login_js/jquery.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='login_js/popper.js') }}"></script>
+	<script src="{{ url_for('static', filename='login_js/bootstrap.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='login_js/main.js') }}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Librarian Panel</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../css/issue.css">
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script>
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+          {
+            pageLanguage: "en",
+            includedLanguages: "pa,ta,te,kn,ml,hi,mr,as,bn,bho,doi,gu,gom,mai,mni-Mtei,lus,or,sa,sd,ur,en",
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false,
+            multilanguagePage: true,
+          },
+          "google_translate_element"
+        );
+      }
+    </script>
+</head>
+<div id="google_translate_element"></div>
+<body style="background-image: url('static/images/back.jpg'); background-repeat: no-repeat; background-size: cover; background-attachment: fixed;">
+<header>
+<div class="nav">
+<p>LIBRARIAN PANEL</p>
+<img src="{{ url_for('static', filename='../static/images/logo.png') }}" alt="Logo">
+<p id="user">Librarian</p>
+<a href="/logout" style="text-decoration: none;">
+    <div id="logout" style="text-decoration: underline;">Logout</div>
+</a>
+</div>
+<nav>
+<ul>
+<li><a href="/das">Dashboard</a></li>
+<li><a href="/profile">My Profile</a></li>
+<li><a href="/register1">Issue Books</a></li>
+<li><a href="/issued">View Issued Books</a></li>
+<li><a href="/manageuser">Manage Users</a></li>
+<li><a href="/bookmanage">Book Management</a></li>
+<li><a href="/help">Help</a></li>
+<li><a href="/about">About Software</a></li>
+</ul>
+</nav>
+</header>
+<div class="sectionbox">
+<section>
+<div id="loginpic">
+<img src="{{ url_for('static', filename='../static/images/login1.png') }}" alt="LIBRARIAN Image" height="10%" width="10%">
+ </div>
+
+<form action="/issue" method="POST">
+<table>
+ <tr><td><label>Book No</label></td>
+<td><input type="text" id="bno" name="bookno" placeholder="Book No."></td></tr>
+<tr><td> <label>Book Title</label></td>
+<td><input type="text" id="bno" name="bookname" placeholder="Book Name"></td></tr>
+<tr><td><label>Quantity</label></td>
+<td><input type="text" id="quantity" name="quantity" placeholder="Quantity"></td></tr>
+<tr><td> <label>Price</label></td>
+<td><input type="text" id="price" name="price" placeholder="Price"></td></tr>
+<tr><td> <label>User Id</label></td>
+<td><input type="text" id="userid" name="userid" placeholder="User Id"></td></tr>
+<tr><td> <label>Name</label></td>
+<td><input type="text" id="name" name="uname" placeholder="User Name"></td></tr>
+<tr><td> <label>Phone</label></td>
+<td><input type="text" id="phone" name="phone" placeholder="Phone"></td></tr>
+<tr><td> <label>Email</label></td>
+<td><input type="text" id="email" name="email" placeholder="Email"></td></tr>
+<tr><td> <label>Address</label></td>
+<td><input type="text" id="add" name="address" placeholder="Address"></td></tr>
+<tr><td><input type="submit" value="submit"></td></tr>
+</table>
+</form>
+</section>
+</div>>
+</body>
+</html>

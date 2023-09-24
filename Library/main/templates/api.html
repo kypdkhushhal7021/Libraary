@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Librarian Panel</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/issue.css') }}">
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script>
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+          {
+            pageLanguage: "en",
+            includedLanguages: "pa,ta,te,kn,ml,hi,mr,as,bn,bho,doi,gu,gom,mai,mni-Mtei,lus,or,sa,sd,ur,en",
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false,
+            multilanguagePage: true,
+          },
+          "google_translate_element"
+        );
+      }
+    </script>
+</head>
+<div id="google_translate_element"></div>
+<body style="background-image: url('static/images/back.jpg'); background-repeat: no-repeat; background-size: cover; background-attachment: fixed;">
+<header>
+<div class="nav">
+<p>LIBRARIAN PANEL</p>
+<img src="{{ url_for('static', filename='../static/images/logo.png') }}" alt="Logo">
+<p id="user">Librarian</p>
+<a href="/logout" style="text-decoration: none;">
+    <div id="logout" style="text-decoration: underline;">Logout</div>
+</a>
+</div>
+<nav>
+<ul>
+<li><a href="/das">Dashboard</a></li>
+<li><a href="/profile">My Profile</a></li>
+<li><a href="/register1">Issue Books</a></li>
+<li><a href="/issued">View Issued Books</a></li>
+<li><a href="/manageuser">Manage Users</a></li>
+<li><a href="/bookmanage">Book Management</a></li>
+<li><a href="/help">Help</a></li>
+<li><a href="/about">About Software</a></li>
+</ul>
+</nav>
+</header>
+<div class="sectionbox">
+<section>
+<div id="loginpic">
+<img src="{{ url_for('static', filename='../static/images/login1.png') }}" alt="LIBRARIAN Image" height="10%" width="10%">
+ </div>
+
+<form>
+<label for="numBooks">Enter the number of books to import:</label>
+        <input type="number" id="numBooks" min="1" step="1">
+    
+ <a href="/api" name="num_books" class="button-link" value=" ADD &#128214; using API" style="width:12%;" onclick="importBooks()"> ADD &#128214; using API</a>
+</form>
+</div>
+</form>
+    <script>
+        function importBooks() {
+            var numBooks = document.getElementById('numBooks').value;
+
+            // Check if a valid number of books is entered
+            if (isNaN(numBooks) || numBooks < 1) {
+                alert("Please enter a valid number of books.");
+                return;
+            }
+
+            // Redirect to the backend endpoint with the specified number of books
+            window.location.href = `/import_books?num_books=${numBooks}`;
+        }
+</script>
+</section>
+</div>>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>CRS Login</title>
+	<meta charset="utf-8">
+	<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script>
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+          {
+            pageLanguage: "en",
+            includedLanguages: "pa,ta,te,kn,ml,hi,mr,as,bn,bho,doi,gu,gom,mai,mni-Mtei,lus,or,sa,sd,ur,en",
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false,
+            multilanguagePage: true,
+          },
+          "google_translate_element"
+        );
+      }
+    </script>
+    <style>
+      /* Style for language selector */
+      .goog-te-banner-frame {
+        display: none !important;
+      }
+      .goog-te-menu-value {
+        padding: 0;
+      }
+      .goog-te-menu-value span:first-child {
+        font-size: 14px;
+        font-weight: bold;
+      }
+      .goog-te-menu-value span:last-child {
+        font-size: 12px;
+        font-weight: normal;
+      }
+      .goog-te-menu2 {
+        border: 1px solid #ccc;
+        background-color: #f8f8f8;
+      }
+      .goog-te-menu2-item {
+        padding: 5px 10px;
+        font-size: 14px;
+      }
+      .goog-te-menu2-item:hover {
+        background-color: #e5e5e5;
+      }
+      /* Style for translated text */
+      [data-translate] {
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
+        color: #333;
+        margin-bottom: 10px;
+      }
+    </style>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<div id="google_translate_element"></div>
+<body class="img js-fullheight" style="background-image: url(../static/lib1.png);">
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">Login</h2>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-6 col-lg-4">
+					<div class="login-wrap p-0">
+						<h3 class="mb-4 text-center">Have an account?</h3>
+						<form action="/dashboard1" class="signin-form" method="POST">
+							<div class="form-group">
+								<input type="text" id="email" name="email" class="form-control" placeholder="Email" required>
+							</div>
+							<div class="form-group">
+								<input id="password-field" name="Pas" type="password" class="form-control" placeholder="Password"
+									required>
+								<span toggle="#password-field"
+									class="fa fa-fw fa-eye field-icon toggle-password"></span>
+							</div>
+							<div class="form-group">
+								<button type="submit" class="form-control btn btn-primary submit px-3" onclick="login()">Sign In</button>
+							</div>
+						</form>
+						<p class="w-100 text-center">&mdash; You don't have account? &mdash;</p>
+						<div class="social d-flex text-center">
+							<a href="/register" class="px-2 py-2 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span>
+								Sign Up</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script>
+        // Function to handle login
+        function login() {
+            // Get the entered email (which is also the username)
+            var email = document.getElementById('email').value;
+
+            // Get the entered password
+            var password = document.getElementById('password-field').value;
+
+            // Check if the password is equal to the email (username)
+            if (password === email) {
+                // If password matches username, redirect to dashboard.html
+                window.location.href = 'dashboard.html';
+            } else {
+                alert('Invalid login. Password must be equal to the email (username).');
+            }
+        }
+    </script>
+
+</body>
+
+</html>

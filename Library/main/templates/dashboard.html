@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Dashboard</title>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css?family=Cute+Font&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script>
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+          {
+            pageLanguage: "en",
+            includedLanguages: "pa,ta,te,kn,ml,hi,mr,as,bn,bho,doi,gu,gom,mai,mni-Mtei,lus,or,sa,sd,ur,en",
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false,
+            multilanguagePage: true,
+          },
+          "google_translate_element"
+        );
+      }
+    </script>
+</head>
+<div id="google_translate_element"></div>
+<body style="background-image: url('static/images/back.jpg'); background-repeat: no-repeat; background-size: cover; background-attachment: fixed;">
+<header>
+<div class="nav">
+<p>LIBRARIAN PANEL</p>
+<img src="{{ url_for('static', filename='../static/images/logo.png') }}" alt="Logo">
+<p id="user">Librarian</p>
+<a href="/logout" style="text-decoration: none;">
+    <div id="logout" style="text-decoration: underline;">Logout</div>
+</div>
+</a>
+<nav>
+<ul>
+<li><a href="/das">Dashboard</a></li>
+<li><a href="/profile">My Profile</a></li>
+<li><a href="/register1">Issue Books</a></li>
+<li><a href="/issued">View Issued Books</a></li>
+<li><a href="/manageuser">Manage Users</a></li>
+<li><a href="/bookmanage">Book Management</a></li>
+<li><a href="/help">Help</a></li>
+<li><a href="/about">About Software</a></li>
+
+</ul>
+</nav>
+</header>
+<section>
+<button id="issuebook"><p>
+	{{ issued }}
+
+</p><br><i class="fa fa-book" aria-hidden="true"></i>Issued Books</button>
+<button id="users"><p>
+    {{ members }}
+  
+</p><br><i class="fa fa-user" aria-hidden="true"></i>Users</button>
+<button id="books"><p>
+     {{ books_count }}
+</p><br><i class="fa fa-book" aria-hidden="true"></i>Books Available</a></button>
+<img src="{{ url_for('static', filename='images/dashboard.webp') }}" alt="Dashboard">
+</section>
+</body>
+</html>

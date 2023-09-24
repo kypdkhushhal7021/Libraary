@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Librarian Panel</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/issued.css') }}">
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script>
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+          {
+            pageLanguage: "en",
+            includedLanguages: "pa,ta,te,kn,ml,hi,mr,as,bn,bho,doi,gu,gom,mai,mni-Mtei,lus,or,sa,sd,ur,en",
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false,
+            multilanguagePage: true,
+          },
+          "google_translate_element"
+        );
+      }
+    </script>
+<style>
+table {
+	  
+            width: 80%; /* Adjust the width as needed */
+            margin: 0 auto; /* Center the table */
+            border-collapse: collapse; /* Collapse borders to create spacing */
+        }
+
+        th, td {
+	    font-size: 12px;
+            padding: 10px; /* Adjust padding as needed */
+            border: 1px solid #ccc; /* Border for every cell */
+        }
+</style>
+<script>
+ function returnBook(bookId) {
+  // Implement the logic to handle the return action for the specified book ID
+  console.log('Return button clicked for book ID:', bookId);
+}
+</script>
+</head>
+<div id="google_translate_element"></div>
+<body style="background-image: url('static/images/back.jpg'); background-repeat: no-repeat; background-size: cover; background-attachment: fixed;">
+<header>
+<div class="nav">
+<p>LIBRARIAN PANEL</p>
+<img src="{{ url_for('static', filename='../static/images/logo.png') }}" alt="Logo">
+<p id="user">Librarian</p>
+<a href="/logout" style="text-decoration: none;">
+    <div id="logout" style="text-decoration: underline;">Logout</div>
+</a>
+<nav>
+<ul>
+<li><a href="/das">Dashboard</a></li>
+<li><a href="/profile">My Profile</a></li>
+<li><a href="/register1">Issue Books</a></li>
+<li><a href="/issued">View Issued Books</a></li>
+<li><a href="/manageuser">Manage Users</a></li>
+<li><a href="/bookmanage">Book Management</a></li>
+<li><a href="/help">Help</a></li>
+<li><a href="/about">About Software</a></li>
+</ul>
+</nav>
+</header>
+<div class="sectionbox">
+<section>
+
+
+<table>
+<thead>
+  <tr>
+    <th>Member ID</th>
+                <th>Member Name</th>
+                <th>Book ID</th>
+                <th>Title</th>
+                <th>Username</th>
+                <th>Date Issued</th>
+                <th>Due Date</th>
+                <th>Action</th>
+</thead>
+<tbody>
+            {% for book in issued_books %}
+            <tr>
+                <td>{{ book.mem_id }}</td>
+                <td>{{ book.mem_name }}</td>
+                <td>{{ book.book_id }}</td>
+                <td>{{ book.title }}</td>
+                <td>{{ book.username }}</td>
+                <td>{{ book.date_issued }}</td>
+                <td>{{ book.due_date }}</td>
+               <td><form action="/delete_book" method="post">
+ 		<input type="hidden" name="book_id" value="{{ book.book_id }}">
+		<input type="hidden" name="mem_id" value="{{ book.mem_id }}">
+  <button type="submit" name="action" value="return_book">Return</button></form></td>
+            </tr>
+            {% endfor %}
+        </tbody> 
+</div>
+</table>
+</section>	
+
+
+</body>
+</html>

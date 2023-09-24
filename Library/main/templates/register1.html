@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Librarian Panel</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/issue.css') }}">
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script>
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+          {
+            pageLanguage: "en",
+            includedLanguages: "pa,ta,te,kn,ml,hi,mr,as,bn,bho,doi,gu,gom,mai,mni-Mtei,lus,or,sa,sd,ur,en",
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false,
+            multilanguagePage: true,
+          },
+          "google_translate_element"
+        );
+      }
+    </script>
+</head>
+<div id="google_translate_element"></div>
+<body style="background-image: url('static/images/back.jpg'); background-repeat: no-repeat; background-size: cover; background-attachment: fixed;">
+
+<header>
+<div class="nav">
+<p>LIBRARIAN PANEL</p>
+<img src="{{ url_for('static', filename='../static/images/logo.png') }}" alt="Logo">
+<p id="user">Librarian</p>
+<a href="/logout" style="text-decoration: none;">
+    <div id="logout" style="text-decoration: underline;">Logout</div>
+</a>
+</div>
+<nav>
+<ul>
+<li><a href="/das">Dashboard</a></li>
+<li><a href="/profile">My Profile</a></li>
+<li><a href="/register1">Issue Books</a></li>
+<li><a href="/issued">View Issued Books</a></li>
+<li><a href="/manageuser">Manage Users</a></li>
+<li><a href="/bookmanage">Book Management</a></li>
+<li><a href="/help">Help</a></li>
+<li><a href="/about">About Software</a></li>
+
+</ul>
+</nav>
+</header>
+<div class="sectionbox" height="50%">
+<section>
+<div id="loginpic">
+<img src="{{ url_for('static', filename='../static/images/login1.png') }}" alt="Logo" height="10%" width="10%">
+ </div>
+
+<form action="/register1" method="post">
+<table><tr><td> <label>Select a book to issue:</label></td>
+        <td><select id="book" name="book" onchange="updateSelectedValue()">
+            {% for title, author in titles_and_authors %}
+                <option value="{{ title }}">{{ title }} by {{ author }}</option>
+            {% endfor %}
+        </select></td></tr>
+	<input type="hidden" id="book_title" name="book_title">
+       <tr><td>  <label for="member">Select a member:</label></td>
+       <td> <select id="member" name="member" onchange="updateSelectedValue()">
+            {% for member_name in member_names %}
+                <option value="{{ member_name[0] }}">{{ member_name[0] }}</option>
+            {% endfor %}
+        </select></td></tr>
+<input type="hidden" id="mem" name="mem">
+<tr>
+    <td><label>Select Date</label></td>
+    <td><input type="date" id="selected_date" name="selected_date" onchange="updateSelectedValue()"></td>
+  </tr>
+<input type="hidden" id="sdate" name="sdate">
+        <tr><td><input type="submit" value="Issue Book"></td></tr>
+
+</table>
+</form>
+</section>
+</div>
+<script>
+function updateSelectedValue() {
+    // Update the hidden input with the selected value
+    var book_title= document.getElementById("book").value;
+    var mem= document.getElementById("member").value;
+    var sdate= document.getElementById("selected_date").value;
+    
+    if (sdate === '') {
+        alert('Please select a date.');
+        return false; // Stop form submission
+    } else {
+        document.getElementById("book_title").value = book_title;
+    document.getElementById("mem").value = mem;
+    document.getElementById("sdate").value = sdate;
+        return true; // Allow form submission
+    }
+}
+</script>
+</body>
+</html>

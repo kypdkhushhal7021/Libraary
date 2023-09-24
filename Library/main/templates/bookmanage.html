@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Book Management</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/bookmanage.css') }}">
+
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script>
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+          {
+            pageLanguage: "en",
+            includedLanguages: "pa,ta,te,kn,ml,hi,mr,as,bn,bho,doi,gu,gom,mai,mni-Mtei,lus,or,sa,sd,ur,en",
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false,
+            multilanguagePage: true,
+          },
+          "google_translate_element"
+        );
+      }
+    </script>
+<style>
+
+.button-link {
+  display: inline-block;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.button-link:hover {
+  background-color: #0056b3; /* Change the color on hover */
+}
+
+table {
+	  
+            width: 80%; /* Adjust the width as needed */
+            margin: 0 auto; /* Center the table */
+            border-collapse: collapse; /* Collapse borders to create spacing */
+        }
+
+        th, td {
+	    font-size: 16px;
+            padding: 12px; /* Adjust padding as needed */
+            border: 1px solid #ccc; /* Border for every cell */
+        }
+</style>
+</head>
+<div id="google_translate_element"></div>
+<body style="background-image: url('static/images/back.jpg'); background-repeat: no-repeat; background-size: cover; background-attachment: fixed;">
+<header>
+<div class="nav">
+<p>LIBRARIAN PANEL</p>
+<img src="{{ url_for('static', filename='../static/images/logo.png') }}" alt="Logo">
+<p id="user">Librarian</p>
+<a href="/logout" style="text-decoration: none;">
+    <div id="logout" style="text-decoration: underline;">Logout</div>
+</a>
+</div>
+<nav>
+<ul>
+<li><a href="/das">Dashboard</a></li>
+<li><a href="/profile">My Profile</a></li>
+<li><a href="/register1">Issue Books</a></li>
+<li><a href="/issued">View Issued Books</a></li>
+<li><a href="/manageuser">Manage Users</a></li>
+<li><a href="/bookmanage">Book Management</a></li>
+<li><a href="/help">Help</a></li>
+<li><a href="/about">About Software</a></li>
+</ul>
+</nav>
+</header>
+<section>
+<div id="content">
+<form action="/bookmanage" method="POST"> 
+<label style="background:black;color:white;margin-left: 90px; "></label>
+<input type="text" id="bid" name="bookid" placeholder="Book ID" value="{{ bid[0] }}" style="width:6%">
+<label style="background:black;color:white; ">Book Name</label>
+<input type="text" id="bname" name="bookname" placeholder="Book Name" style="width:13%">
+<label style="background:black;color:white;">Author Name</label>
+<input type="text" id="aname" name="Aname" placeholder="Author Name" style="width:12%">
+
+<input type="submit" value="&#128269;">
+<a href="/api" class="button-link" value=" ADD &#128214; using API" style="width:12%;" onclick="redirectToURL()"> ADD &#128214; using API</a>
+</form>
+<table>
+<thead>
+  <tr>
+                <th>Book ID</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Publisher</th>
+                
+</thead>
+<tbody>
+            {% for book in issued_books %}
+            <tr>
+                <td>{{ book.id }}</td>
+                <td>{{ book.title }}</td>
+                <td>{{ book.author }}</td>
+                <td>{{ book.publisher }}</td>
+               
+            </tr>
+            {% endfor %}
+        </tbody> 
+</div>
+</table>
+</div>
+</section>
+<script>
+function redirectToURL() {
+  // Replace 'YOUR_URL_HERE' with the actual URL you want to navigate to
+  window.location.href = '/api';
+}
+</script>
+</body>
+</html>
